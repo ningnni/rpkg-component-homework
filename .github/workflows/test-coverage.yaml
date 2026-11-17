@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - uses: actions/checkout@v7
@@ -38,7 +39,9 @@ jobs:
           covr::to_cobertura(cov)
         shell: Rscript {0}
 
+      # 仅在已配置 CODECOV_TOKEN 时上传覆盖率；未配置时跳过上传，但上面的测试已真实运行。
       - uses: codecov/codecov-action@v4
+        if: ${{ env.CODECOV_TOKEN != '' }}
         with:
           fail_ci_if_error: ${{ github.event_name != 'pull_request' && true || false }}
           file: ./cobertura.xml
