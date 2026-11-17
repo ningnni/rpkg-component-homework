@@ -1,0 +1,51 @@
+# R 会话与本地缓存
+.Rproj.user/
+.Rhistory
+.RData
+.RDataTmp
+.Ruserdata
+*.Rproj.user
+
+# 密钥与凭证（绝不入库）
+.env
+.env.*
+*.pem
+*.key
+*.token
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+credentials
+.credentials
+*.credentials
+
+# 构建与检查产物
+*.tar.gz
+*.tgz
+.Rcheck/
+*.Rcheck/
+revdep/
+check/
+build/
+site/
+
+# 上游仓库临时克隆与临时文件
+RHtests/
+upstream/
+tmp/
+temp/
+*/temp
+*/*/temp
+
+# 编辑器与系统缓存
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+*.orig
+
+# 本地缓存
+.cache/
